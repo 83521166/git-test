@@ -1,0 +1,149 @@
+<!--create.ejs-->
+
+
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<div class="container">
+<h4>Fare Create form</h4>
+
+
+<form action="/person/create" method="POST" class="form-horizontal">
+
+  <div class="card" >
+    <div class="col-sm-12 col-md-6">
+    <div class="form-group">
+
+        <label class="control-label">Region: </label><br>
+          <select style="width:300px" class="form-control" name="Person[Region]"id="Region" onchange="cultureSelected()">
+          <option value="nan">please select one</option>
+          <option value="East Asia">East Asia</option>
+          <option value="South-east Asia">South-east Asia</option>
+          <option value="Americas">Americas</option>
+          </select>
+      </div>
+
+    <div class="form-group">
+        <label class="control-label ">City: </label><br>
+        <select style="width:300px" class="form-control" id="City"  name="Person[City]" disabled>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label ">Class: </label><br>
+        <select style="width:300px" class="form-control" id="Class" name="Person[Class]">
+          <option value="Economy">Economy</option>
+          <option value="Business">Business</option>
+        </select>
+        <br>
+        <label class="control-label ">Price: </label>
+
+        <input class="form-control" name="Person[Price]" type="text" id="Price">
+    </div>
+  </div>
+</div>
+
+<!--card-->
+
+
+
+<div class="card">
+   <div class="col-sm-12 col-md-6">
+
+        <label class="control-label ">Image: </label>
+       <br>
+       <input class="form-control" name="Person[Image]" type="text" id="Image">
+       <br>
+       <label class="control-label ">Deal Valid Till: </label>
+       <br>
+       <input class="form-control" name="Person[Deal]" type="date" id="Deal">
+       <br>
+       <label class="control-label ">Quota: </label>
+       <br>
+       <input class="form-control" name="Person[Quota]" type="text" id="Quota">
+       <br>
+       <label class="control-label ">Dates: </label>
+       <br>
+       <input type="text" value="01/01/2015 - 01/31/2015" id="daterange" name="Person[Dates]">
+
+        </div>
+
+</div>
+
+    <button class="btn btn-default" type="submit" value="ADD">Submit</button>
+
+</form>
+
+
+</div>
+
+<!-- Include Required Prerequisites -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script src="https://cdn.bootcss.com/bootstrap-daterangepicker/2.1.25/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<script src="https://cdn.bootcss.com/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+
+function cultureSelected() {
+  var culture = document.getElementById("Region").value;
+
+  var zodiac = document.getElementById("City");
+  City.options.length = 0;
+  if (culture == "East Asia") {
+
+    var option = document.createElement("option");
+    option.text = "Osake";
+    option.value = "Osake";
+    City.add(option);
+
+    var option = document.createElement("option");
+    option.text = "Seoul";
+    option.value = "Seoul";
+    City.add(option);
+
+    City.disabled = false;
+}
+if (culture == "South-east Asia") {
+
+  var option = document.createElement("option");
+  option.text = "Cebu";
+  option.value = "Cebu";
+  City.add(option);
+
+  var option = document.createElement("option");
+  option.text = "Singapore";
+  option.value = "Singapore";
+  City.add(option);
+
+  City.disabled = false;
+}
+if (culture == "Americas") {
+
+  var option = document.createElement("option");
+  option.text = "Los Angeles";
+  option.value = "Los Angeles";
+  City.add(option);
+
+  var option = document.createElement("option");
+  option.text = "Boston";
+  option.value = "Boston";
+  City.add(option);
+
+  City.disabled = false;
+}
+}
+//<!-- Include Required Prerequisites -->
+
+</script>
+<script type="text/javascript"  >
+
+    $('input[id="daterange"]').daterangepicker();
+
+</script>

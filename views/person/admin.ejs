@@ -1,0 +1,43 @@
+<div class="container">
+  <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Destination</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+              <%var i=0;persons.forEach(function(model){
+                i++;
+                %>
+
+            <tr>
+              <th scope="row"><%=i%></th>
+              <td><%=model.City%></td>
+              <td><a href="http://localhost:1337/person/update/<%=model.id%>">update</a ></td>
+              <td><a href="http://localhost:1337/person/delete/<%=model.id%>">delete</a ></td>
+            </tr>
+
+               <% }); %>
+
+          </tbody>
+        </table>
+
+</div>
+
+<% var current = req.query.page %>
+<nav>
+    <ul class="pagination">
+
+
+        <%for(i=1;i<=count;i++){%>
+            <li><a href="/person/admin/?page=<%=i%>"> <%=i%> </a></li>
+        <%}%>
+
+
+    </ul>
+</nav>
